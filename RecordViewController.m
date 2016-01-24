@@ -40,7 +40,6 @@
     if(self.counter == 1) {
         self.SignalImage.image =
         [UIImage imageNamed:@"Red.png"];
-        self.stopButton.hidden = false;
         self.recordStatus.text = @"Started recording data..";
     }
     else if(self.counter == 2) {
@@ -50,6 +49,7 @@
     else if(self.counter >= 3) {
         self.SignalImage.image =
         [UIImage imageNamed:@"Green.png"];
+        self.stopButton.hidden = false;
         
     }
 
