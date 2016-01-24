@@ -53,6 +53,9 @@
                                     <constraint firstAttribute="width" constant="231" id="oeu-bt-I9O"/>
                                 </constraints>
                                 <state key="normal" image="TranslateButton"/>
+                                <connections>
+                                    <segue destination="ZgL-Ug-DGU" kind="push" id="NHS-QJ-Okt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -72,6 +75,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="309" y="-942"/>
+        </scene>
+        <!--Translate Gesture-->
+        <scene sceneID="ZKd-PB-6mn">
+            <objects>
+                <viewController id="ZgL-Ug-DGU" customClass="TranslateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xgZ-dC-DMk"/>
+                        <viewControllerLayoutGuide type="bottom" id="AXU-jv-LwG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1GT-lS-0hU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="UIm-Ng-ZI5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UIm-Ng-ZI5" firstAttribute="leading" secondItem="1GT-lS-0hU" secondAttribute="leadingMargin" constant="-20" id="FfA-PD-E0w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UIm-Ng-ZI5" secondAttribute="trailing" constant="-20" id="Icj-u9-OM7"/>
+                            <constraint firstItem="UIm-Ng-ZI5" firstAttribute="top" secondItem="1GT-lS-0hU" secondAttribute="topMargin" id="Z7M-VQ-4fS"/>
+                            <constraint firstItem="AXU-jv-LwG" firstAttribute="top" secondItem="UIm-Ng-ZI5" secondAttribute="bottom" id="rhi-2L-dzk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Translate Gesture" id="Gxy-ks-YhL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n0q-Br-sxY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317" y="-183"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="dmO-VJ-v6d">
