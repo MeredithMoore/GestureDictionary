@@ -44,6 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self preparePlayer];
     self.emgMatrix = [[NSMutableArray alloc] initWithCapacity:1];
     self.emgCount = 0;
     // Data notifications are received through NSNotificationCenter.
@@ -293,7 +294,7 @@
 - (void) countUp:(NSTimer *)timer {
     self.startButton.hidden = true;
     self.counter++;
-    if(self.counter == 10){
+    if(self.counter == 5){
         [self.myo setStreamEmg:TLMStreamEmgDisabled];
         NSLog(@"Data recording stopped.");
         self.recordStatus.text = @"Click the start button to record gesture";
