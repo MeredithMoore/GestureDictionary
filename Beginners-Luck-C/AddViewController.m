@@ -10,9 +10,9 @@
 #import <MyoKit/MyoKit.h>
 
 @interface AddViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UITextField *gestureName;
-@property (weak, nonatomic) IBOutlet UITextView *gestureDescription;
+
+@property (weak, nonatomic) IBOutlet UITextField *gestureNameInput;
+@property (weak, nonatomic) IBOutlet UITextView *gestureDescriptionTextView;
 
 
 @end
@@ -27,5 +27,9 @@
     
 }
 
+- (IBAction)saveButtonPressed:(id)sender {
+    NSString *tempName = self.gestureNameInput.text;
+    NSString *tempDescription = self.gestureDescriptionTextView.text;
+}
 
 @end

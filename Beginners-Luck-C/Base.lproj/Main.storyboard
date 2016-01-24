@@ -21,15 +21,26 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="KUs-B5-za0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TranslateButton" translatesAutoresizingMaskIntoConstraints="NO" id="hRj-wc-rj8">
-                                <rect key="frame" x="45" y="386" width="240" height="75"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShD-Fq-Pqh">
                                 <rect key="frame" x="52" y="127" width="216" height="173"/>
-                                <state key="normal" title="Button" image="AddButton"/>
+                                <state key="normal" image="AddButton"/>
                                 <connections>
                                     <segue destination="3aS-Yb-SW7" kind="push" id="JaH-aB-BJO"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYN-BZ-3jF">
+                                <rect key="frame" x="270" y="72" width="31" height="29"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <state key="normal" image="settings"/>
+                                <connections>
+                                    <action selector="settingToConnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wyn-tE-EEc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAh-R8-Jmk">
+                                <rect key="frame" x="45" y="403" width="231" height="93"/>
+                                <state key="normal" image="TranslateButton"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -66,7 +77,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x78-tR-9Dq">
                                 <rect key="frame" x="105" y="320" width="122" height="155"/>
-                                <state key="normal" title="Button" image="start"/>
+                                <state key="normal" image="start"/>
                                 <connections>
                                     <action selector="startCounter:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="tj3-iP-q5Q"/>
                                 </connections>
@@ -78,8 +89,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a35-yf-qYB">
-                                <rect key="frame" x="102" y="314" width="129" height="160.5"/>
-                                <state key="normal" title="Button" image="stop"/>
+                                <rect key="frame" x="102" y="314" width="129" height="161"/>
+                                <state key="normal" image="stop"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="ZNc-hd-ZNZ"/>
                                 </connections>
@@ -90,7 +101,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="a77-X9-Es5" kind="push" id="ytx-st-b0q"/>
+                                    <segue destination="a77-X9-Es5" kind="push" identifier="addSegue" id="BhZ-B8-EHG"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfZ-lb-rBt">
@@ -137,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqN-Au-8NZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736" y="-922"/>
+            <point key="canvasLocation" x="728" y="-942"/>
         </scene>
         <!--AddView Controller-->
         <scene sceneID="zz9-cF-zOZ">
@@ -154,23 +165,44 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="SqM-lV-uNV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add Gesture Description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RsC-qz-iH6">
-                                <rect key="frame" x="20" y="165" width="240" height="128"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gesture:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOL-Rc-gKF">
+                                <rect key="frame" x="20" y="85" width="127" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RsC-qz-iH6">
+                                <rect key="frame" x="20" y="200" width="280" height="192"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Add Gesture Description...">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="smallSystem"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Gesture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPp-gL-0wG">
-                                <rect key="frame" x="20" y="78" width="127" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPp-gL-0wG">
+                                <rect key="frame" x="20" y="166" width="127" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gesture Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UwX-Cp-jmo">
-                                <rect key="frame" x="20" y="119" width="127" height="30"/>
+                                <rect key="frame" x="20" y="119" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rw-6U-lUj">
+                                <rect key="frame" x="68" y="420" width="184" height="104"/>
+                                <state key="normal" image="save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="a77-X9-Es5" eventType="touchUpInside" id="Pxy-n2-fpj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -180,16 +212,15 @@
                             <constraint firstItem="SqM-lV-uNV" firstAttribute="top" secondItem="m5a-bT-DMh" secondAttribute="topMargin" id="zaL-XS-AwM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Vke-fn-zZf"/>
+                    <navigationItem key="navigationItem" title="Finish Gesture" id="Vke-fn-zZf"/>
                     <connections>
-                        <outlet property="gestureDescription" destination="RsC-qz-iH6" id="mxp-eP-oHG"/>
-                        <outlet property="gestureName" destination="UwX-Cp-jmo" id="R0h-zA-Mb1"/>
-                        <outlet property="nameLabel" destination="pPp-gL-0wG" id="95a-56-9xt"/>
+                        <outlet property="gestureDescriptionTextView" destination="RsC-qz-iH6" id="ggN-FX-hKF"/>
+                        <outlet property="gestureNameInput" destination="UwX-Cp-jmo" id="KHr-Mx-VFP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84H-4T-sJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1278" y="-1334"/>
+            <point key="canvasLocation" x="1166" y="-942"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iKL-F2-71Y">
@@ -215,6 +246,7 @@
         <image name="Red" width="296" height="729"/>
         <image name="TranslateButton" width="576" height="206"/>
         <image name="bg" width="750" height="1334"/>
+        <image name="save" width="184" height="104"/>
         <image name="settings" width="128" height="128"/>
         <image name="start" width="301" height="377"/>
         <image name="stop" width="301" height="377"/>
