@@ -12,25 +12,32 @@
 
 @interface Gesture : PFObject {
    
+
+    
     NSString *title;
     NSString *description;
     
     //Gyro Min/Max threshold
-    NSMutableArray *gyroMax;
+    //NSMutableArray *gyroMax;
     NSMutableArray *gyroMin;
     
     //Accelaromitor Min/Max threshold
-    NSMutableArray *acclMax;
+    //NSMutableArray *acclMax;
     NSMutableArray *acclMin;
     
     //Orientation Min/Max threshold
-    NSMutableArray *oriMax;
+    //NSMutableArray *oriMax;
     NSMutableArray *oriMin;
     
     //Emg Min/Max threshold
-    NSMutableArray *emgMax;
+    //NSMutableArray *emgMax;
     NSMutableArray *emgMin;
+    
 
 }
+
+- (id)init;
+
+- (id)initWithGesture:(NSString *)titlePassed secondParameter: (NSString *)descriptionPassed thirdParameter: (NSMutableArray *)emgPassed fourthParameter: (NSMutableArray *)acclerationPassed fifthParameter: (NSMutableArray *)orientationPassed sixthParameter: (NSMutableArray *)gyroPassed;
 
 @end

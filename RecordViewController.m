@@ -353,14 +353,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"addSegue"]) {
         
-        // Get destination view
-        AddViewController *vc = [segue destinationViewController];
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        AddViewController *controller = (AddViewController *)navController.topViewController;
+        controller.emgMatrix = self.emgMatrix;
         
-        // Get button tag number (or do whatever you need to do here, based on your object
-        NSMutableArray *tempMax;
-        
-        // Pass the information to your destination view
-        //[vc setSelectedButton:tempMax];
     }
 
 }

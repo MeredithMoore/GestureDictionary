@@ -10,5 +10,11 @@
 #import <UIKit/UIKit.h>
 @interface AddViewController : UIViewController
 
+@property(nonatomic) NSMutableArray *emgMatrix;
+@property(nonatomic) NSMutableArray *oriMatrix;
+@property(nonatomic) NSMutableArray *acclMatrix;
+@property(nonatomic) NSMutableArray *gyroMatrix;
+
+
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="a7e-sQ-zqY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="a7e-sQ-zqY">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -201,6 +201,7 @@
                                 <state key="normal" image="save"/>
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="a77-X9-Es5" eventType="touchUpInside" id="Pxy-n2-fpj"/>
+                                    <segue destination="BYZ-38-t0r" kind="push" id="BpV-kn-asq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -251,4 +252,7 @@
         <image name="start" width="301" height="377"/>
         <image name="stop" width="301" height="377"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="BpV-kn-asq"/>
+    </inferredMetricsTieBreakers>
 </document>

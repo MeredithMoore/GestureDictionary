@@ -8,6 +8,8 @@
 
 #import "AddViewController.h"
 #import <MyoKit/MyoKit.h>
+#import "Gesture.h"
+#import "ViewController.h"
 
 @interface AddViewController ()
 
@@ -28,8 +30,17 @@
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
-    NSString *tempName = self.gestureNameInput.text;
-    NSString *tempDescription = self.gestureDescriptionTextView.text;
+    //Gesture *data = [[Gesture alloc] init];
+    Gesture *data = [[Gesture alloc] initWithGesture: self.gestureNameInput.text secondParameter: self.gestureDescriptionTextView.text thirdParameter: self.emgMatrix fourthParameter: self.acclMatrix fifthParameter: self.oriMatrix sixthParameter: self.gyroMatrix ];
+    
+    [data saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            
+        } else if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
+
 }
 
 @end
