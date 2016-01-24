@@ -1,4 +1,6 @@
 //
+
+
 //  RecordViewController.m
 //  Beginners-Luck-C
 //
@@ -17,6 +19,7 @@
 - (IBAction)startCounter:(id)sender;
 - (void)lightAnimation;
 - (void)preparePlayer;
+- (IBAction)didTapSettings:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *redoButton;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
@@ -28,6 +31,8 @@
 @property int counter;
 @property NSTimer *timer;
 @property AVAudioPlayer *player;
+@property NSMutableArray *emgMatrix;
+@property int emgCount ;
 
 @end
 
@@ -35,15 +40,12 @@
 @implementation RecordViewController
 
 
+#pragma mark - View Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.counter = 0;
-    // Do any additional setup after loading the view, typically from a nib.
-    [self preparePlayer];
-    //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
-    
-    
-    
+    self.emgMatrix = [[NSMutableArray alloc] initWithCapacity:1];
+    self.emgCount = 0;
     // Data notifications are received through NSNotificationCenter.
     // Posted whenever a TLMMyo connects
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -65,7 +67,7 @@
                                              selector:@selector(didUnsyncArm:)
                                                  name:TLMMyoDidReceiveArmUnsyncEventNotification
                                                object:nil];
-    // Posted whenever Myo is unlocked and the application uses TLMLockingPolicyStandard.
+    // Posted whenever Myo is unlocked and the application uses TLMLockingUnPolicyStandard.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didUnlockDevice:)
                                                  name:TLMMyoDidReceiveUnlockEventNotification
@@ -95,17 +97,13 @@
                                              selector:@selector(didReceiveEmgEvent:)
                                                  name:TLMMyoDidReceiveEmgEventNotification
                                                object:nil];
-
-
-}
-
-- (void)didReceiveEmgEvent:(NSNotification *)notification {
-    NSLog(@"HEEeeeee");
-    TLMEmgEvent *emgEvent = notification.userInfo[kTLMKeyEMGEvent];
-    NSLog(@"%@",emgEvent.rawData);
     
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 #pragma mark - NSNotificationCenter Methods
 
@@ -113,40 +111,25 @@
     // Access the connected device.
     self.myo = notification.userInfo[kTLMKeyMyo];
     NSLog(@"Connected to %@.", self.myo.name);
-    
-    // Align our label to be in the center of the view.
-   // [self.helloLabel setCenter:self.view.center];
-    
-    // Set the text of the armLabel to "Perform the Sync Gesture".
-    self.gestureStatus.text = @"Perform the Sync Gesture";
-    
-    // Set the text of our helloLabel to be "Hello Myo".
-    //self.helloLabel.text = @"Hello Myo";
-    
-    // Show the acceleration progress bar
-   
+    self.gestureStatus.text = @"Connected-Perform Sync Gesture";
 }
 
 - (void)didDisconnectDevice:(NSNotification *)notification {
     // Access the disconnected device.
     self.myo = notification.userInfo[kTLMKeyMyo];
     NSLog(@"Disconnected from %@.", self.myo.name);
-    
-    // Remove the text from our labels when the Myo has disconnected.
-    self.gestureStatus.text = @"Disconnected";
+    self.gestureStatus.text = @"Disconnected to Myo";
 
-    
-    // Hide the acceleration progress bar.
-  }
+}
 
 - (void)didUnlockDevice:(NSNotification *)notification {
     // Update the label to reflect Myo's lock state.
-    self.gestureStatus.text = @"Unlocked";
+    self.gestureStatus.text = @"Myo Unlocked";
 }
 
 - (void)didLockDevice:(NSNotification *)notification {
     // Update the label to reflect Myo's lock state.
-    self.gestureStatus.text = @"Locked";
+    self.gestureStatus.text = @"Myo Locked";
 }
 
 - (void)didSyncArm:(NSNotification *)notification {
@@ -154,15 +137,15 @@
     TLMArmSyncEvent *armEvent = notification.userInfo[kTLMKeyArmSyncEvent];
     
     // Update the armLabel with arm information.
-   NSString *armString = armEvent.arm == TLMArmRight ? @"Right" : @"Left";
+    NSString *armString = armEvent.arm == TLMArmRight ? @"Right" : @"Left";
     NSString *directionString = armEvent.xDirection == TLMArmXDirectionTowardWrist ? @"Toward Wrist" : @"Toward Elbow";
-    self.gestureStatus.text = [NSString stringWithFormat:@"Arm: %@ X-Direction: %@", armString, directionString];
-    self.gestureStatus.text = @"Synced - Locked";
+//    self.armLabel.text = [NSString stringWithFormat:@"Arm: %@ X-Direction: %@", armString, directionString];
+//    self.lockLabel.text = @"Locked";
 }
 
 - (void)didUnsyncArm:(NSNotification *)notification {
     // Reset the labels.
-    self.gestureStatus.text = @"Unsync action performed..";
+//    self.armLabel.text = @"Perform the Sync Gesture";
 //    self.helloLabel.text = @"Hello Myo";
 //    self.lockLabel.text = @"";
 //    self.helloLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:50];
@@ -177,10 +160,10 @@
     TLMEulerAngles *angles = [TLMEulerAngles anglesWithQuaternion:orientationEvent.quaternion];
     
     // Next, we want to apply a rotation and perspective transformation based on the pitch, yaw, and roll.
-   CATransform3D rotationAndPerspectiveTransform = CATransform3DConcat(CATransform3DConcat(CATransform3DRotate (CATransform3DIdentity, angles.pitch.radians, -1.0, 0.0, 0.0), CATransform3DRotate(CATransform3DIdentity, angles.yaw.radians, 0.0, 1.0, 0.0)), CATransform3DRotate(CATransform3DIdentity, angles.roll.radians, 0.0, 0.0, -1.0));
+    CATransform3D rotationAndPerspectiveTransform = CATransform3DConcat(CATransform3DConcat(CATransform3DRotate (CATransform3DIdentity, angles.pitch.radians, -1.0, 0.0, 0.0), CATransform3DRotate(CATransform3DIdentity, angles.yaw.radians, 0.0, 1.0, 0.0)), CATransform3DRotate(CATransform3DIdentity, angles.roll.radians, 0.0, 0.0, -1.0));
     
     // Apply the rotation and perspective transform to helloLabel.
-    self.gestureStatus.layer.transform = rotationAndPerspectiveTransform;
+   // self.helloLabel.layer.transform = rotationAndPerspectiveTransform;
 }
 
 - (void)didReceiveAccelerometerEvent:(NSNotification *)notification {
@@ -194,7 +177,7 @@
     float magnitude = TLMVector3Length(accelerationVector);
     
     // Update the progress bar based on the magnitude of the acceleration vector.
-//    self.accelerationProgressBar.progress = magnitude / 8;
+    //self.accelerationProgressBar.progress = magnitude / 8;
     
     /* Note you can also access the x, y, z values of the acceleration (in G's) like below
      float x = accelerationVector.x;
@@ -203,8 +186,20 @@
      */
 }
 
+- (void)didReceiveEmgEvent:(NSNotification *)notification {
+    //NSLog(@"HEEeeeee");
+    TLMEmgEvent *emgEvent = notification.userInfo[kTLMKeyEMGEvent];
+    NSMutableArray *temp = [[NSMutableArray alloc] init];
+    for( int i=0; i<8; i++){
+        [temp addObject:emgEvent.rawData[i]];
+    }
+    NSLog(@"%@",emgEvent.rawData);
+    [self.emgMatrix addObject:temp];
+}
+
 - (void)didReceivePoseChange:(NSNotification *)notification {
     // Retrieve the pose from the NSNotification's userInfo with the kTLMKeyPose key.
+    
     TLMPose *pose = notification.userInfo[kTLMKeyPose];
     self.currentPose = pose;
     
@@ -214,31 +209,31 @@
         case TLMPoseTypeRest:
         case TLMPoseTypeDoubleTap:
             // Changes helloLabel's font to Helvetica Neue when the user is in a rest or unknown pose.
-            self.gestureStatus.text = @"Hello Myo";
-           // self.helloLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:50];
-           // self.helloLabel.textColor = [UIColor blackColor];
+//            self.helloLabel.text = @"Hello Myo";
+//            self.helloLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:50];
+//            self.helloLabel.textColor = [UIColor blackColor];
             break;
         case TLMPoseTypeFist:
             // Changes helloLabel's font to Noteworthy when the user is in a fist pose.
-            self.gestureStatus.text = @"Fist";
+            self.gestureStatus.text = @"Gesture: Fist";
 //            self.helloLabel.font = [UIFont fontWithName:@"Noteworthy" size:50];
 //            self.helloLabel.textColor = [UIColor greenColor];
             break;
         case TLMPoseTypeWaveIn:
             // Changes helloLabel's font to Courier New when the user is in a wave in pose.
-            self.gestureStatus.text = @"Wave In";
+            self.gestureStatus.text = @"Gesture: Wave In";
 //            self.helloLabel.font = [UIFont fontWithName:@"Courier New" size:50];
 //            self.helloLabel.textColor = [UIColor greenColor];
             break;
         case TLMPoseTypeWaveOut:
             // Changes helloLabel's font to Snell Roundhand when the user is in a wave out pose.
-            self.gestureStatus.text = @"Wave Out";
+            self.gestureStatus.text = @"Gesture: Wave Out";
 //            self.helloLabel.font = [UIFont fontWithName:@"Snell Roundhand" size:50];
 //            self.helloLabel.textColor = [UIColor greenColor];
             break;
         case TLMPoseTypeFingersSpread:
             // Changes helloLabel's font to Chalkduster when the user is in a fingers spread pose.
-            self.gestureStatus.text = @"Fingers Spread";
+            self.gestureStatus.text = @"Gesture: Fingers Spread";
 //            self.helloLabel.font = [UIFont fontWithName:@"Chalkduster" size:50];
 //            self.helloLabel.textColor = [UIColor greenColor];
             break;
@@ -258,10 +253,6 @@
     }
 }
 
-
-
-
-
 - (void)lightAnimation {
 
     if(self.counter == 1) {
@@ -274,25 +265,49 @@
         [UIImage imageNamed:@"Yellow.png"];
     }
     else if(self.counter >= 3) {
+       
         // start recording
-
+        [self.myo setStreamEmg:TLMStreamEmgEnabled];
         self.SignalImage.image =
         [UIImage imageNamed:@"Green.png"];
         self.stopButton.hidden = false;
-        
     }
+    
 
 }
 
 - (void)preparePlayer {
+    
     NSString *path = [NSString stringWithFormat:@"%@/4 Beep.mp3", [[NSBundle mainBundle] resourcePath]];
     NSURL *url = [NSURL fileURLWithPath:path];
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url  error:nil];
 }
 
+- (IBAction)didTapSettings:(id)sender {
+    UINavigationController *controller = [TLMSettingsViewController settingsInNavigationController];
+    // Present the settings view controller modally.
+    [self presentViewController:controller animated:YES completion:nil];
+    
+}
+
 - (void) countUp:(NSTimer *)timer {
     self.startButton.hidden = true;
     self.counter++;
+    if(self.counter == 10){
+        [self.myo setStreamEmg:TLMStreamEmgDisabled];
+        NSLog(@"Data recording stopped.");
+        self.recordStatus.text = @"Click the start button to record gesture";
+        self.counter = 0;
+        self.startButton.hidden = true;
+        self.stopButton.hidden = true;
+        self.redoButton.hidden = false;
+        self.addButton.hidden = false;
+        [self.timer invalidate];
+        self.SignalImage.image =
+        [UIImage imageNamed:@"Red.png"];
+        NSLog(@"Total rows: %ld",[self.emgMatrix count]);
+        self.gestureStatus.text = @"Gesture data captured.";
+    }
     [self lightAnimation];
 }
 
@@ -309,6 +324,7 @@
     [self.timer invalidate];
     self.SignalImage.image =
     [UIImage imageNamed:@"Red.png"];
+    NSLog(@"Total rows: %ld",[self.emgMatrix count]);
 }
 - (IBAction)redo:(id)sender {
     self.startButton.hidden = false;
@@ -331,11 +347,12 @@
 /*
  #pragma mark - Navigation
  
- // In a storyboard-based application, you will often want to do a little preparation before navigation
+  In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+  Get the new view controller using [segue destinationViewController].
+  Pass the selected object to the new view controller.
  }
  */
+
 
 @end

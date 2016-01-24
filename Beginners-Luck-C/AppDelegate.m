@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,6 +19,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // [Optional] Power your app with Local Datastore. For more info, go to
     // https://parse.com/docs/ios/guide#local-datastore
+    
+    [[TLMHub sharedHub] setApplicationIdentifier:@"com.sai.Beginners-Luck-C"];
+    
+
+    
+    
+    
     [Parse enableLocalDatastore];
     
     // Initialize Parse.
