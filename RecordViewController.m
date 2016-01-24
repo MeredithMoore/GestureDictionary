@@ -33,6 +33,8 @@
 @property NSTimer *timer;
 @property AVAudioPlayer *player;
 @property NSMutableArray *emgMatrix;
+@property NSMutableArray *accMatrix;
+@property NSMutableArray *gyroMatrix;
 @property int emgCount ;
 
 @end
@@ -47,6 +49,8 @@
     [super viewDidLoad];
     [self preparePlayer];
     self.emgMatrix = [[NSMutableArray alloc] initWithCapacity:1];
+    self.accMatrix = [[NSMutableArray alloc] initWithCapacity:1];
+    self.gyroMatrix = [[NSMutableArray alloc] initWithCapacity:1];
     self.emgCount = 0;
     // Data notifications are received through NSNotificationCenter.
     // Posted whenever a TLMMyo connects
@@ -100,6 +104,13 @@
                                                  name:TLMMyoDidReceiveEmgEventNotification
                                                object:nil];
     
+    // Posted when a new pose is available from a TLMEmgEvent.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveGyroEvent:)
+                                                 name:TLMMyoDidReceiveGyroscopeEventNotification
+                                               object:nil];
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,6 +119,28 @@
 }
 
 #pragma mark - NSNotificationCenter Methods
+
+-(void) didReceiveGyroEvent:(NSNotification *) notification {
+    TLMAccelerometerEvent *accelerometerEvent = notification.userInfo[kTLMKeyGyroscopeEvent];
+    TLMVector3 accelerationVector = accelerometerEvent.vector;
+    float x = accelerationVector.x;
+    float y = accelerationVector.y;
+    float z = accelerationVector.z;
+    NSMutableArray *tempa = [[NSMutableArray alloc] init];
+    NSNumber *num ;
+    //NSLog(@"******%d*********", self.counter);
+    if(self.counter >= 1 && self.counter <= 5) {
+        
+        num = [NSNumber numberWithFloat:x];
+        [tempa addObject:num];
+        num = [NSNumber numberWithFloat:y];
+        [tempa addObject:num];
+        num = [NSNumber numberWithFloat:z];
+        [tempa addObject:num];
+    }
+    [self.gyroMatrix addObject:tempa];
+}
+
 
 - (void)didConnectDevice:(NSNotification *)notification {
     // Access the connected device.
@@ -181,11 +214,23 @@
     // Update the progress bar based on the magnitude of the acceleration vector.
     //self.accelerationProgressBar.progress = magnitude / 8;
     
-    /* Note you can also access the x, y, z values of the acceleration (in G's) like below
+    
      float x = accelerationVector.x;
      float y = accelerationVector.y;
      float z = accelerationVector.z;
-     */
+    NSMutableArray *tempa = [[NSMutableArray alloc] init];
+    NSNumber *num ;
+    //NSLog(@"******%d*********", self.counter);
+    if(self.counter >= 1 && self.counter <= 5) {
+    
+        num = [NSNumber numberWithFloat:x];
+        [tempa addObject:num];
+        num = [NSNumber numberWithFloat:y];
+        [tempa addObject:num];
+        num = [NSNumber numberWithFloat:z];
+        [tempa addObject:num];
+    }
+    [self.accMatrix addObject:tempa];
 }
 
 - (void)didReceiveEmgEvent:(NSNotification *)notification {
@@ -195,7 +240,7 @@
     for( int i=0; i<8; i++){
         [temp addObject:emgEvent.rawData[i]];
     }
-    NSLog(@"%@",emgEvent.rawData);
+    //NSLog(@"%@",emgEvent.rawData);
     [self.emgMatrix addObject:temp];
 }
 
@@ -295,7 +340,7 @@
 - (void) countUp:(NSTimer *)timer {
     self.startButton.hidden = true;
     self.counter++;
-    if(self.counter == 5){
+    if(self.counter == 8){
         [self.myo setStreamEmg:TLMStreamEmgDisabled];
         NSLog(@"Data recording stopped.");
         self.recordStatus.text = @"Click the start button to record gesture";
@@ -307,8 +352,12 @@
         [self.timer invalidate];
         self.SignalImage.image =
         [UIImage imageNamed:@"Red.png"];
-        NSLog(@"Total rows: %ld",[self.emgMatrix count]);
+        //NSLog(@"Total rows: %ld",[self.emgMatrix count]);
         self.gestureStatus.text = @"Gesture data captured.";
+        NSLog(@"Total EMG rows: %ld",[self.emgMatrix count]);
+        NSLog(@"Total Acc rows: %ld",[self.accMatrix count]);
+        NSLog(@"Total Gyro rows: %ld",[self.gyroMatrix count]);
+
     }
     [self lightAnimation];
 }
@@ -326,7 +375,9 @@
     [self.timer invalidate];
     self.SignalImage.image =
     [UIImage imageNamed:@"Red.png"];
-    NSLog(@"Total rows: %ld",[self.emgMatrix count]);
+    NSLog(@"Total EMG rows: %ld",[self.emgMatrix count]);
+    NSLog(@"Total Acc rows: %ld",[self.accMatrix count]);
+    NSLog(@"Total Gyro rows: %ld",[self.gyroMatrix count]);
 }
 - (IBAction)redo:(id)sender {
     self.startButton.hidden = false;
