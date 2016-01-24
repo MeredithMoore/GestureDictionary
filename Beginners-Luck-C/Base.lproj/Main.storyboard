@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--APP NAME-->
@@ -17,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="KUs-B5-za0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYN-BZ-3jF">
                                 <rect key="frame" x="274" y="72" width="31" height="29"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -28,10 +32,10 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TranslateButton" translatesAutoresizingMaskIntoConstraints="NO" id="hRj-wc-rj8">
-                                <rect key="frame" x="40" y="473" width="240" height="75"/>
+                                <rect key="frame" x="45" y="386" width="240" height="75"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShD-Fq-Pqh">
-                                <rect key="frame" x="52" y="100" width="216" height="173"/>
+                                <rect key="frame" x="52" y="127" width="216" height="173"/>
                                 <state key="normal" title="Button" image="AddButton"/>
                                 <connections>
                                     <segue destination="3aS-Yb-SW7" kind="push" id="JaH-aB-BJO"/>
@@ -39,6 +43,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KUs-B5-za0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="1Ex-GO-wN3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KUs-B5-za0" secondAttribute="bottom" id="21W-Yu-LK0"/>
+                            <constraint firstItem="KUs-B5-za0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="m6E-hi-GEj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KUs-B5-za0" secondAttribute="trailing" constant="-20" id="nXT-1g-VJ6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="APP NAME" id="q6B-0N-XON"/>
                 </viewController>
@@ -58,48 +68,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-dY-6c8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Red" translatesAutoresizingMaskIntoConstraints="NO" id="wiN-3F-5g5">
-                                <rect key="frame" x="208" y="94" width="92" height="219"/>
+                                <rect key="frame" x="114" y="72" width="92" height="219"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x78-tR-9Dq">
-                                <rect key="frame" x="71" y="108" width="90" height="102"/>
+                                <rect key="frame" x="105" y="320" width="122" height="155"/>
                                 <state key="normal" title="Button" image="start"/>
                                 <connections>
                                     <action selector="startCounter:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="tj3-iP-q5Q"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click the start button to record gesture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-CH-e36">
+                                <rect key="frame" x="66" y="483" width="200" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a35-yf-qYB">
-                                <rect key="frame" x="71" y="108" width="88" height="102"/>
+                                <rect key="frame" x="102" y="314" width="129" height="160.5"/>
                                 <state key="normal" title="Button" image="stop"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="ZNc-hd-ZNZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click the start button to record gesture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-CH-e36">
-                                <rect key="frame" x="6" y="225" width="200" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvs-Yj-JgJ">
+                                <rect key="frame" x="214" y="520" width="86" height="30"/>
+                                <state key="normal" title="Add Gesture">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfZ-lb-rBt">
+                                <rect key="frame" x="20" y="520" width="43" height="30"/>
+                                <state key="normal" title="Redo?">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="redo:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="Pkt-Oa-ttr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IDC-dY-6c8" firstAttribute="leading" secondItem="a13-4w-eng" secondAttribute="leadingMargin" constant="-20" id="GJv-T3-RK6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IDC-dY-6c8" secondAttribute="trailing" constant="-20" id="VWu-fi-ctw"/>
+                            <constraint firstItem="IDC-dY-6c8" firstAttribute="top" secondItem="a13-4w-eng" secondAttribute="topMargin" id="mq8-Ap-3Wq"/>
+                            <constraint firstItem="WvP-51-0cW" firstAttribute="top" secondItem="IDC-dY-6c8" secondAttribute="bottom" id="xxh-Jx-nOm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9IP-NX-CJb"/>
                     <connections>
                         <outlet property="SignalImage" destination="wiN-3F-5g5" id="UPB-MM-RHt"/>
+                        <outlet property="addButton" destination="Hvs-Yj-JgJ" id="IpB-fu-Ajx"/>
                         <outlet property="recordStatus" destination="BvG-CH-e36" id="P31-pi-17E"/>
+                        <outlet property="redoButton" destination="bfZ-lb-rBt" id="LUM-Rd-p9e"/>
                         <outlet property="startButton" destination="x78-tR-9Dq" id="Bgr-Pa-Ibb"/>
                         <outlet property="stopButton" destination="a35-yf-qYB" id="fmU-v7-4XJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqN-Au-8NZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="702" y="-641"/>
+            <point key="canvasLocation" x="736" y="-898"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iKL-F2-71Y">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KFC-5k-4Uc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a7e-sQ-zqY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3rf-LY-omI">
@@ -111,6 +146,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Trb-Es-xlH"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFC-5k-4Uc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-133" y="-942"/>
         </scene>
@@ -119,6 +155,7 @@
         <image name="AddButton" width="463" height="380"/>
         <image name="Red" width="296" height="729"/>
         <image name="TranslateButton" width="576" height="206"/>
+        <image name="bg" width="750" height="1334"/>
         <image name="settings" width="128" height="128"/>
         <image name="start" width="301" height="377"/>
         <image name="stop" width="301" height="377"/>
