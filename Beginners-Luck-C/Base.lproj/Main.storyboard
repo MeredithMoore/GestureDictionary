@@ -95,7 +95,7 @@
                                     <action selector="stopRecording:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="ZNc-hd-ZNZ"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvs-Yj-JgJ">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvs-Yj-JgJ">
                                 <rect key="frame" x="214" y="525" width="86" height="30"/>
                                 <state key="normal" title="Add Gesture">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -104,7 +104,7 @@
                                     <segue destination="a77-X9-Es5" kind="push" identifier="addSegue" id="BhZ-B8-EHG"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfZ-lb-rBt">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfZ-lb-rBt">
                                 <rect key="frame" x="20" y="524" width="43" height="30"/>
                                 <state key="normal" title="Redo?">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -129,9 +129,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bfZ-lb-rBt" firstAttribute="leading" secondItem="a13-4w-eng" secondAttribute="leadingMargin" id="1Px-Yv-wNA"/>
+                            <constraint firstItem="Hvs-Yj-JgJ" firstAttribute="trailing" secondItem="a13-4w-eng" secondAttribute="trailingMargin" id="4Ze-4f-wOc"/>
                             <constraint firstItem="IDC-dY-6c8" firstAttribute="leading" secondItem="a13-4w-eng" secondAttribute="leadingMargin" constant="-20" id="GJv-T3-RK6"/>
+                            <constraint firstItem="WvP-51-0cW" firstAttribute="top" secondItem="bfZ-lb-rBt" secondAttribute="bottom" constant="14" id="RRa-Li-vx3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IDC-dY-6c8" secondAttribute="trailing" constant="-20" id="VWu-fi-ctw"/>
                             <constraint firstItem="IDC-dY-6c8" firstAttribute="top" secondItem="a13-4w-eng" secondAttribute="topMargin" id="mq8-Ap-3Wq"/>
+                            <constraint firstItem="WvP-51-0cW" firstAttribute="top" secondItem="Hvs-Yj-JgJ" secondAttribute="bottom" constant="13" id="tFV-Gy-kSh"/>
                             <constraint firstItem="WvP-51-0cW" firstAttribute="top" secondItem="IDC-dY-6c8" secondAttribute="bottom" id="xxh-Jx-nOm"/>
                         </constraints>
                     </view>
