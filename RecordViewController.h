@@ -11,6 +11,7 @@
 @interface RecordViewController : UIViewController
 //@property (weak, nonatomic) int *counter = 0;
 
+@property (weak, nonatomic) IBOutlet UILabel *gestureStatus;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *startButton;

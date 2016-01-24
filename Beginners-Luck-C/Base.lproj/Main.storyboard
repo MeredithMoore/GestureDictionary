@@ -82,7 +82,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click the start button to record gesture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-CH-e36">
-                                <rect key="frame" x="66" y="483" width="200" height="29"/>
+                                <rect key="frame" x="70" y="466" width="200" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -112,6 +112,12 @@
                                     <action selector="redo:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="Pkt-Oa-ttr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gesture Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gM2-5s-R9r">
+                                <rect key="frame" x="113" y="498" width="114" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -125,6 +131,7 @@
                     <connections>
                         <outlet property="SignalImage" destination="wiN-3F-5g5" id="UPB-MM-RHt"/>
                         <outlet property="addButton" destination="Hvs-Yj-JgJ" id="IpB-fu-Ajx"/>
+                        <outlet property="gestureStatus" destination="gM2-5s-R9r" id="0Jf-n8-K2E"/>
                         <outlet property="recordStatus" destination="BvG-CH-e36" id="P31-pi-17E"/>
                         <outlet property="redoButton" destination="bfZ-lb-rBt" id="LUM-Rd-p9e"/>
                         <outlet property="startButton" destination="x78-tR-9Dq" id="Bgr-Pa-Ibb"/>
