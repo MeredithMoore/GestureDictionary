@@ -10,6 +10,7 @@
 #import <MyoKit/MyoKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import "AddViewController.h"
 
 @interface RecordViewController ()
 
@@ -328,14 +329,23 @@
     
 }
 
-/*
+
  #pragma mark - Navigation
  
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+// This will get called too before the view appears
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"addSegue"]) {
+        
+        // Get destination view
+        AddViewController *vc = [segue destinationViewController];
+        
+        // Get button tag number (or do whatever you need to do here, based on your object
+        NSMutableArray *tempMax;
+        
+        // Pass the information to your destination view
+        //[vc setSelectedButton:tempMax];
+    }
+
+}
 
 @end
