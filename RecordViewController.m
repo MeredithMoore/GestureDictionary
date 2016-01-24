@@ -8,23 +8,27 @@
 
 #import "RecordViewController.h"
 #import <MyoKit/MyoKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface RecordViewController ()
 
 - (IBAction)stopRecording:(id)sender;
-
 - (IBAction)startCounter:(id)sender;
+- (void)lightAnimation;
+- (void)preparePlayer;
+
 @property (weak, nonatomic) IBOutlet UIButton *redoButton;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
-
 @property (weak, nonatomic) IBOutlet UILabel *recordStatus;
-
 @property (weak, nonatomic) IBOutlet UIImageView *SignalImage;
-@property (strong, nonatomic) TLMPose *currentPose;
 
+@property (strong, nonatomic) TLMPose *currentPose;
 @property (strong, nonatomic) TLMMyo *myo;
 @property int counter;
 @property NSTimer *timer;
+@property AVAudioPlayer *player;
+
 @end
 
 
@@ -35,7 +39,7 @@
     [super viewDidLoad];
     self.counter = 0;
     // Do any additional setup after loading the view, typically from a nib.
-    
+    [self preparePlayer];
     //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
     
     
@@ -258,7 +262,7 @@
 
 
 
-- (void) lightAnimation {
+- (void)lightAnimation {
 
     if(self.counter == 1) {
         self.SignalImage.image =
@@ -278,6 +282,12 @@
         
     }
 
+}
+
+- (void)preparePlayer {
+    NSString *path = [NSString stringWithFormat:@"%@/4 Beep.mp3", [[NSBundle mainBundle] resourcePath]];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url  error:nil];
 }
 
 - (void) countUp:(NSTimer *)timer {
@@ -307,6 +317,7 @@
 - (IBAction)startCounter:(id)sender {
     //this is where we will have to start recording data
     self.timer = [[NSTimer alloc] init];
+    [self.player play];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                 target:self
                 selector:@selector(countUp:)
@@ -315,5 +326,16 @@
     NSLog(@"Data Recording Started......");
     [runner addTimer: self.timer forMode: NSDefaultRunLoopMode];
     
-   }
+}
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
 @end
