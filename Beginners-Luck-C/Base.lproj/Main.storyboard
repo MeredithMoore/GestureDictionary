@@ -138,7 +138,7 @@
         <!--AddView Controller-->
         <scene sceneID="zz9-cF-zOZ">
             <objects>
-                <viewController id="a77-X9-Es5" userLabel="AddView Controller" sceneMemberID="viewController">
+                <viewController title="AddViewController" id="a77-X9-Es5" userLabel="AddView Controller" customClass="AddViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HSn-Fc-WQN"/>
                         <viewControllerLayoutGuide type="bottom" id="drW-8e-EXn"/>
@@ -177,10 +177,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vke-fn-zZf"/>
+                    <connections>
+                        <outlet property="gestureDescription" destination="RsC-qz-iH6" id="mxp-eP-oHG"/>
+                        <outlet property="gestureName" destination="UwX-Cp-jmo" id="R0h-zA-Mb1"/>
+                        <outlet property="nameLabel" destination="pPp-gL-0wG" id="95a-56-9xt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84H-4T-sJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1127" y="-958"/>
+            <point key="canvasLocation" x="1278" y="-1334"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iKL-F2-71Y">
