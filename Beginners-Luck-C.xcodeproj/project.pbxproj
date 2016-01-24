@@ -33,6 +33,7 @@
 		D35EB19A1C54845700DBAFD7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35EB1991C54845700DBAFD7 /* Bolts.framework */; };
 		D35EB19C1C54846100DBAFD7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35EB19B1C54846100DBAFD7 /* Parse.framework */; };
 		D35EB19E1C54847400DBAFD7 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35EB19D1C54847400DBAFD7 /* ParseUI.framework */; };
+		F20184611C54896A00F24636 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20184601C54896A00F24636 /* AddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		D35EB1991C54845700DBAFD7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		D35EB19B1C54846100DBAFD7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D35EB19D1C54847400DBAFD7 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		F20184601C54896A00F24636 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		F20184621C54897C00F24636 /* AddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +235,8 @@
 				BA395E331C54535B00EFD2EE /* ViewController.m */,
 				BA395E6B1C545A7300EFD2EE /* RecordViewController.h */,
 				BA395E6C1C545A7300EFD2EE /* RecordViewController.m */,
+				F20184601C54896A00F24636 /* AddViewController.m */,
+				F20184621C54897C00F24636 /* AddViewController.h */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				BA395E341C54535B00EFD2EE /* ViewController.m in Sources */,
 				BA395E311C54535B00EFD2EE /* AppDelegate.m in Sources */,
 				BA395E3A1C54535B00EFD2EE /* Beginners_Luck_C.xcdatamodeld in Sources */,
+				F20184611C54896A00F24636 /* AddViewController.m in Sources */,
 				BA395E2E1C54535B00EFD2EE /* main.m in Sources */,
 				BA395E6D1C545A7300EFD2EE /* RecordViewController.m in Sources */,
 				D35EB1981C5483E800DBAFD7 /* Gesture.m in Sources */,
