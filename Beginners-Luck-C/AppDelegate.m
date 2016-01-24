@@ -17,10 +17,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
+    // [Optional] Power your app with Local Datastore. For more info, go to
+    // https://parse.com/docs/ios/guide#local-datastore
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"AnRUidcjZ9F6eiJIxunwbVWIYIVOYmorxM5R66bt"
+                  clientKey:@"cRFOu2k8GHQbLrxVFlXT7C0lNPA5eQNPJGiAEia1"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
     return YES;
 }
 
