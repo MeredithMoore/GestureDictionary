@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="a7e-sQ-zqY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="a7e-sQ-zqY">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -82,7 +82,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click the start button to record gesture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-CH-e36">
-                                <rect key="frame" x="71" y="519" width="200" height="29"/>
+                                <rect key="frame" x="66" y="483" width="200" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -92,6 +92,21 @@
                                 <state key="normal" title="Button" image="stop"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="ZNc-hd-ZNZ"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvs-Yj-JgJ">
+                                <rect key="frame" x="214" y="520" width="86" height="30"/>
+                                <state key="normal" title="Add Gesture">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfZ-lb-rBt">
+                                <rect key="frame" x="20" y="520" width="43" height="30"/>
+                                <state key="normal" title="Redo?">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="redo:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="Pkt-Oa-ttr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -106,14 +121,16 @@
                     <navigationItem key="navigationItem" id="9IP-NX-CJb"/>
                     <connections>
                         <outlet property="SignalImage" destination="wiN-3F-5g5" id="UPB-MM-RHt"/>
+                        <outlet property="addButton" destination="Hvs-Yj-JgJ" id="IpB-fu-Ajx"/>
                         <outlet property="recordStatus" destination="BvG-CH-e36" id="P31-pi-17E"/>
+                        <outlet property="redoButton" destination="bfZ-lb-rBt" id="LUM-Rd-p9e"/>
                         <outlet property="startButton" destination="x78-tR-9Dq" id="Bgr-Pa-Ibb"/>
                         <outlet property="stopButton" destination="a35-yf-qYB" id="fmU-v7-4XJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqN-Au-8NZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="702" y="-641"/>
+            <point key="canvasLocation" x="736" y="-898"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iKL-F2-71Y">

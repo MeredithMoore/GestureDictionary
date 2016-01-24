@@ -14,6 +14,8 @@
 - (IBAction)stopRecording:(id)sender;
 
 - (IBAction)startCounter:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *redoButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *recordStatus;
 
@@ -64,11 +66,16 @@
 - (IBAction)stopRecording:(id)sender {
     self.recordStatus.text = @"Click the start button to record gesture";
     self.counter = 0;
-    self.startButton.hidden = false;
+    self.startButton.hidden = true;
     self.stopButton.hidden = true;
+    self.redoButton.hidden = false;
+    self.addButton.hidden = false;
     [self.timer invalidate];
     self.SignalImage.image =
     [UIImage imageNamed:@"Red.png"];
+}
+- (IBAction)redo:(id)sender {
+    self.startButton.hidden = false;
 }
 
 - (IBAction)startCounter:(id)sender {
