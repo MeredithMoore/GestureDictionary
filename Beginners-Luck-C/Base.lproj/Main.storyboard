@@ -21,16 +21,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="KUs-B5-za0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYN-BZ-3jF">
-                                <rect key="frame" x="274" y="72" width="31" height="29"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                </accessibility>
-                                <state key="normal" title="Button" image="settings"/>
-                                <connections>
-                                    <action selector="settingToConnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wyn-tE-EEc"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TranslateButton" translatesAutoresizingMaskIntoConstraints="NO" id="hRj-wc-rj8">
                                 <rect key="frame" x="45" y="386" width="240" height="75"/>
                             </imageView>
@@ -39,6 +29,16 @@
                                 <state key="normal" title="Button" image="AddButton"/>
                                 <connections>
                                     <segue destination="3aS-Yb-SW7" kind="push" id="JaH-aB-BJO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYN-BZ-3jF">
+                                <rect key="frame" x="270" y="72" width="31" height="29"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <state key="normal" image="settings"/>
+                                <connections>
+                                    <action selector="settingToConnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wyn-tE-EEc"/>
                                 </connections>
                             </button>
                         </subviews>
