@@ -404,9 +404,16 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"addSegue"]) {
         
-        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-        AddViewController *controller = (AddViewController *)navController.topViewController;
+//        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        //AddViewController *controller = (AddViewController *)navController;
+        
+        
+        AddViewController *controller = [AddViewController alloc];
         controller.emgMatrix = self.emgMatrix;
+        controller.acclMatrix = self.accMatrix;
+        controller.gyroMatrix = self.gyroMatrix;
+        
+       // [self performSegueWithIdentifier:@"addSegue" sender:self];
         
     }
 
