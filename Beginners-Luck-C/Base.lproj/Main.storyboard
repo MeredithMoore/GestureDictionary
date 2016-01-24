@@ -99,6 +99,9 @@
                                 <state key="normal" title="Add Gesture">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="a77-X9-Es5" kind="push" id="ytx-st-b0q"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfZ-lb-rBt">
                                 <rect key="frame" x="20" y="520" width="43" height="30"/>
@@ -130,7 +133,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqN-Au-8NZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736" y="-898"/>
+            <point key="canvasLocation" x="736" y="-922"/>
+        </scene>
+        <!--AddView Controller-->
+        <scene sceneID="zz9-cF-zOZ">
+            <objects>
+                <viewController id="a77-X9-Es5" userLabel="AddView Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HSn-Fc-WQN"/>
+                        <viewControllerLayoutGuide type="bottom" id="drW-8e-EXn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m5a-bT-DMh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="SqM-lV-uNV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add Gesture Description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RsC-qz-iH6">
+                                <rect key="frame" x="20" y="165" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Gesture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPp-gL-0wG">
+                                <rect key="frame" x="20" y="78" width="127" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gesture Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UwX-Cp-jmo">
+                                <rect key="frame" x="20" y="119" width="127" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SqM-lV-uNV" secondAttribute="trailing" constant="-20" id="LhU-7V-ABG"/>
+                            <constraint firstItem="drW-8e-EXn" firstAttribute="top" secondItem="SqM-lV-uNV" secondAttribute="bottom" id="Su2-gU-Qvf"/>
+                            <constraint firstItem="SqM-lV-uNV" firstAttribute="leading" secondItem="m5a-bT-DMh" secondAttribute="leadingMargin" constant="-20" id="gTe-XR-elP"/>
+                            <constraint firstItem="SqM-lV-uNV" firstAttribute="top" secondItem="m5a-bT-DMh" secondAttribute="topMargin" id="zaL-XS-AwM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vke-fn-zZf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84H-4T-sJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1127" y="-958"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iKL-F2-71Y">
