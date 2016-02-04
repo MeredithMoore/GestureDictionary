@@ -91,20 +91,126 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="UIm-Ng-ZI5">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Red" translatesAutoresizingMaskIntoConstraints="NO" id="NET-B6-zBU">
+                                <rect key="frame" x="114" y="12" width="92" height="219"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="a6W-8N-Ejw"/>
+                                    <constraint firstAttribute="height" constant="219" id="dA1-G3-SNp"/>
+                                </constraints>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q5-CG-x3E">
+                                <rect key="frame" x="102" y="254" width="129" height="161"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="jtC-Cs-5pR"/>
+                                    <constraint firstAttribute="height" constant="161" id="uez-Ey-SNe"/>
+                                </constraints>
+                                <state key="normal" image="stop"/>
+                                <connections>
+                                    <action selector="stopRecording:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="1pe-r4-LzF"/>
+                                    <action selector="stopRecording:" destination="ZgL-Ug-DGU" eventType="touchUpInside" id="xuW-YE-fHm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0e-sq-WBz">
+                                <rect key="frame" x="105" y="260" width="122" height="155"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="LdT-Et-b3W"/>
+                                    <constraint firstAttribute="height" constant="155" id="dIy-Ca-LQh"/>
+                                </constraints>
+                                <state key="normal" image="start"/>
+                                <connections>
+                                    <action selector="startCounter:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="GFY-da-geA"/>
+                                    <action selector="startCounter:" destination="ZgL-Ug-DGU" eventType="touchUpInside" id="LyD-BR-MM4"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUV-ib-Fuq">
+                                <rect key="frame" x="20" y="464" width="43" height="30"/>
+                                <state key="normal" title="Redo?">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="redo:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="bK7-NU-kxW"/>
+                                    <action selector="redo:" destination="ZgL-Ug-DGU" eventType="touchUpInside" id="pkV-CW-5Ga"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gesture Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGe-Dl-zSC">
+                                <rect key="frame" x="20" y="438" width="280" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Bhg-63-tf9"/>
+                                    <constraint firstAttribute="width" constant="280" id="vNC-Ig-7H5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zc2-dV-zAO">
+                                <rect key="frame" x="258" y="12" width="42" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="IFE-PC-bkt"/>
+                                    <constraint firstAttribute="height" constant="41" id="r5Q-08-WQC"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="settings"/>
+                                <connections>
+                                    <action selector="didTapSettings:" destination="3aS-Yb-SW7" eventType="touchUpInside" id="SxW-YF-LZ4"/>
+                                    <action selector="didTapSettings:" destination="ZgL-Ug-DGU" eventType="touchUpInside" id="hdm-kC-FRv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Click the start button to record gesture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhH-ur-KwG">
+                                <rect key="frame" x="66" y="406" width="200" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="71f-lC-Ujp"/>
+                                    <constraint firstAttribute="width" constant="200" id="XV6-zC-aLv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1D-2i-WDB">
+                                <rect key="frame" x="214" y="464" width="86" height="30"/>
+                                <state key="normal" title="Add Gesture">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6q5-CG-x3E" firstAttribute="centerX" secondItem="UIm-Ng-ZI5" secondAttribute="centerX" id="17d-BO-0To"/>
+                            <constraint firstItem="AXU-jv-LwG" firstAttribute="top" secondItem="g1D-2i-WDB" secondAttribute="bottom" constant="74" id="61D-tY-iXg"/>
+                            <constraint firstItem="g1D-2i-WDB" firstAttribute="trailing" secondItem="1GT-lS-0hU" secondAttribute="trailingMargin" id="7Vs-Bx-SIh"/>
+                            <constraint firstItem="6q5-CG-x3E" firstAttribute="top" secondItem="NET-B6-zBU" secondAttribute="bottom" constant="23" id="A19-w9-8gJ"/>
+                            <constraint firstItem="Zc2-dV-zAO" firstAttribute="trailing" secondItem="1GT-lS-0hU" secondAttribute="trailingMargin" id="BUw-ex-pA7"/>
+                            <constraint firstItem="NET-B6-zBU" firstAttribute="centerX" secondItem="UIm-Ng-ZI5" secondAttribute="centerX" id="C59-yD-rx5"/>
                             <constraint firstItem="UIm-Ng-ZI5" firstAttribute="leading" secondItem="1GT-lS-0hU" secondAttribute="leadingMargin" constant="-20" id="FfA-PD-E0w"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UIm-Ng-ZI5" secondAttribute="trailing" constant="-20" id="Icj-u9-OM7"/>
+                            <constraint firstItem="CGe-Dl-zSC" firstAttribute="top" secondItem="E0e-sq-WBz" secondAttribute="bottom" constant="23" id="PwW-7s-ikA"/>
+                            <constraint firstItem="CGe-Dl-zSC" firstAttribute="centerX" secondItem="UIm-Ng-ZI5" secondAttribute="centerX" id="QvD-2t-Hgd"/>
+                            <constraint firstItem="CGe-Dl-zSC" firstAttribute="top" secondItem="rhH-ur-KwG" secondAttribute="bottom" constant="3" id="TAq-BB-3wy"/>
                             <constraint firstItem="UIm-Ng-ZI5" firstAttribute="top" secondItem="1GT-lS-0hU" secondAttribute="topMargin" id="Z7M-VQ-4fS"/>
+                            <constraint firstItem="rhH-ur-KwG" firstAttribute="centerX" secondItem="UIm-Ng-ZI5" secondAttribute="centerX" id="ZKs-p9-x4u"/>
+                            <constraint firstItem="CGe-Dl-zSC" firstAttribute="top" secondItem="UIm-Ng-ZI5" secondAttribute="bottom" constant="-130" id="ggX-J5-e6p"/>
+                            <constraint firstItem="E0e-sq-WBz" firstAttribute="centerX" secondItem="UIm-Ng-ZI5" secondAttribute="centerX" id="iAd-Lw-0ox"/>
+                            <constraint firstItem="AXU-jv-LwG" firstAttribute="top" secondItem="zUV-ib-Fuq" secondAttribute="bottom" constant="74" id="jo8-E2-p9a"/>
+                            <constraint firstItem="rhH-ur-KwG" firstAttribute="top" secondItem="Zc2-dV-zAO" secondAttribute="bottom" constant="353" id="qRL-jV-yU3"/>
+                            <constraint firstItem="Zc2-dV-zAO" firstAttribute="trailing" secondItem="1GT-lS-0hU" secondAttribute="trailingMargin" id="rdG-Fx-ime"/>
                             <constraint firstItem="AXU-jv-LwG" firstAttribute="top" secondItem="UIm-Ng-ZI5" secondAttribute="bottom" id="rhi-2L-dzk"/>
+                            <constraint firstItem="zUV-ib-Fuq" firstAttribute="leading" secondItem="1GT-lS-0hU" secondAttribute="leadingMargin" id="ubZ-X9-h6G"/>
+                            <constraint firstItem="zUV-ib-Fuq" firstAttribute="top" secondItem="CGe-Dl-zSC" secondAttribute="bottom" constant="5" id="xij-oK-GTQ"/>
+                            <constraint firstItem="CGe-Dl-zSC" firstAttribute="top" secondItem="6q5-CG-x3E" secondAttribute="bottom" constant="23" id="yaS-Uo-M92"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Translate Gesture" id="Gxy-ks-YhL"/>
+                    <connections>
+                        <outlet property="SignalImage" destination="NET-B6-zBU" id="Wdk-B2-PZ9"/>
+                        <outlet property="addButton" destination="g1D-2i-WDB" id="p5D-jE-XK3"/>
+                        <outlet property="gestureStatus" destination="CGe-Dl-zSC" id="er8-Nz-JNd"/>
+                        <outlet property="recordStatus" destination="rhH-ur-KwG" id="7dl-Bb-D78"/>
+                        <outlet property="redoButton" destination="zUV-ib-Fuq" id="JgI-t3-KGZ"/>
+                        <outlet property="startButton" destination="E0e-sq-WBz" id="Gnr-fy-fgu"/>
+                        <outlet property="stopButton" destination="6q5-CG-x3E" id="Pcq-RX-OEm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n0q-Br-sxY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="317" y="-183"/>
+            <point key="canvasLocation" x="309" y="-195"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="dmO-VJ-v6d">
