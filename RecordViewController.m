@@ -381,6 +381,8 @@
 }
 - (IBAction)redo:(id)sender {
     self.startButton.hidden = false;
+    self.redoButton.hidden = true;
+    self.addButton.hidden = true;
 }
 
 - (IBAction)startCounter:(id)sender {
