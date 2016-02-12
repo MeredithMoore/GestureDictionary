@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
 
 
-@interface Gesture : PFObject {
+@interface Gesture : NSObject  {
    
 
     

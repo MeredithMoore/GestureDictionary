@@ -30,9 +30,6 @@
 		D35EB1921C547FFF00DBAFD7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D35EB1911C547FFF00DBAFD7 /* libz.tbd */; };
 		D35EB1941C54800900DBAFD7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D35EB1931C54800900DBAFD7 /* libsqlite3.tbd */; };
 		D35EB1981C5483E800DBAFD7 /* Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = D35EB1971C5483E700DBAFD7 /* Gesture.m */; };
-		D35EB19A1C54845700DBAFD7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35EB1991C54845700DBAFD7 /* Bolts.framework */; };
-		D35EB19C1C54846100DBAFD7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35EB19B1C54846100DBAFD7 /* Parse.framework */; };
-		D35EB19E1C54847400DBAFD7 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35EB19D1C54847400DBAFD7 /* ParseUI.framework */; };
 		F20184611C54896A00F24636 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20184601C54896A00F24636 /* AddViewController.m */; };
 		F2982B3B1C54D7F60038FE6E /* TranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2982B3A1C54D7F60038FE6E /* TranslateViewController.m */; };
 /* End PBXBuildFile section */
@@ -88,9 +85,6 @@
 		D35EB1931C54800900DBAFD7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D35EB1961C5483E700DBAFD7 /* Gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gesture.h; sourceTree = "<group>"; };
 		D35EB1971C5483E700DBAFD7 /* Gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gesture.m; sourceTree = "<group>"; };
-		D35EB1991C54845700DBAFD7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		D35EB19B1C54846100DBAFD7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		D35EB19D1C54847400DBAFD7 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		F20184601C54896A00F24636 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 		F20184621C54897C00F24636 /* AddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
 		F2982B391C54D7C50038FE6E /* TranslateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TranslateViewController.h; sourceTree = "<group>"; };
@@ -104,12 +98,9 @@
 			files = (
 				D35EB1941C54800900DBAFD7 /* libsqlite3.tbd in Frameworks */,
 				D35EB1921C547FFF00DBAFD7 /* libz.tbd in Frameworks */,
-				D35EB19E1C54847400DBAFD7 /* ParseUI.framework in Frameworks */,
 				D35EB1901C547FF400DBAFD7 /* SystemConfiguration.framework in Frameworks */,
-				D35EB19A1C54845700DBAFD7 /* Bolts.framework in Frameworks */,
 				D35EB18E1C547FE500DBAFD7 /* StoreKit.framework in Frameworks */,
 				D35EB18C1C547FD800DBAFD7 /* Security.framework in Frameworks */,
-				D35EB19C1C54846100DBAFD7 /* Parse.framework in Frameworks */,
 				D35EB18A1C547FBA00DBAFD7 /* QuartzCore.framework in Frameworks */,
 				D35EB1881C547FAD00DBAFD7 /* CoreLocation.framework in Frameworks */,
 				D35EB1861C547F9A00DBAFD7 /* CoreGraphics.framework in Frameworks */,
@@ -215,9 +206,6 @@
 			children = (
 				D35EB1931C54800900DBAFD7 /* libsqlite3.tbd */,
 				D35EB1911C547FFF00DBAFD7 /* libz.tbd */,
-				D35EB19D1C54847400DBAFD7 /* ParseUI.framework */,
-				D35EB19B1C54846100DBAFD7 /* Parse.framework */,
-				D35EB1991C54845700DBAFD7 /* Bolts.framework */,
 				D35EB18F1C547FF400DBAFD7 /* SystemConfiguration.framework */,
 				D35EB18D1C547FE500DBAFD7 /* StoreKit.framework */,
 				D35EB18B1C547FD800DBAFD7 /* Security.framework */,

@@ -30,10 +30,13 @@
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
+    
+    //okay so here's where we need to figure out how 
     //Gesture *data = [[Gesture alloc] init];
 //    Gesture *data = [[Gesture alloc] initWithGesture: self.gestureNameInput.text secondParameter: self.gestureDescriptionTextView.text thirdParameter: self.emgMatrix fourthParameter: self.acclMatrix fifthParameter: self.oriMatrix sixthParameter: self.gyroMatrix ];
+    /*
     
-    PFObject *data = [PFObject objectWithClassName:@"Gesture"];
+    NSObjectSObject *data = [NSObject objectWithClassName:@"Gesture"];
     
     data[@"title"] = self.gestureNameInput.text;
     data[@"description"] = self.gestureDescriptionTextView.text;
@@ -59,6 +62,7 @@ NSLog(@"%@, %@, %@, %@", self.emgMatrix, self.gyroMatrix, self. oriMatrix, self.
             NSLog(@"%@", error);
         }
     }];
+     */
 
 }
 
